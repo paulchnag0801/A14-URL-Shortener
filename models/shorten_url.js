@@ -2,7 +2,7 @@
 async function generateShortUrl() {
   // basic shortened url information
   const shortUrlLength = 5
-  const baseUrl = 'http://localhost:3000/'
+  const baseUrl = 'https://powerful-journey-36561.herokuapp.com/'
 
   // collection of all possible digits
   const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'

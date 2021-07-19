@@ -3,32 +3,32 @@
     <div class="col-12 col-lg-10 col-xl-8 mx-auto">
       <div class="card">
         <div class="card-body">
-          <h5 class="card-title">Shorten URL right now!</h5>
+          <h5 class="card-title">短網址產生器</h5>
           <hr>
           <div class="col-8 mx-auto d-flex justify-content-center">
-            <span style="font-size:10rem; color: rgba(30, 146, 146);">
-              <i class="fas fa-cut"></i>
+            <span style="font-size:10rem; color: rgb(236, 240, 11);">
+              <i class="fas fa-link"></i>
             </span>
           </div>
           <form id="form" class="col-12" method="POST" action="/" novalidate>
             <div class="form-group row">
               <label for="original-url" class="col-md-8 form-label">
-                Please paste original URL in below input box
+                請輸入或貼上原網址
               </label>
               <input type="url" name="originalUrl" class="form-control col-12" id="original-url"
-                placeholder="Original URL: http://...........................com/.........................."
+                placeholder="原網址: http://...........................com/.........................."
                 value="{{originalUrl}}" aria-label="original url" required>
-              <div class="invalid-feedback ml-3">Please enter correct url</div>
+              <div class="invalid-feedback ml-3">請輸入有效的連結</div>
             </div>
             {{#if shortUrl}}
             <div class="alert alert-info col-12" role="alert">
-              <span class="mr-2">Shortened URL:</span> <input type="url" class="short-url col-12" value="{{shortUrl}}">
+              <span class="mr-2">短網址:</span> <input type="url" class="short-url col-12" value="{{shortUrl}}">
             </div>
             {{/if}}
             <div class="d-flex justify-content-end align-items-center">
               <span class="tool-tip align-self-center mr-2">Copied!</span>
-              <button class="btn btn-info copy-button mr-2" type="button">Copy!</button>
-              <button class="btn btn-success submit-button" type="submit">Shorten!</button>
+              <button class="btn btn-info copy-button mr-2" type="button">複製!</button>
+              <button class="btn btn-success submit-button" type="submit">產生!</button>
             </div>
           </form>
         </div>

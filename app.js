@@ -1,7 +1,7 @@
 const express = require('express')
 const exphbs = require('express-handlebars')
 const generateShortUrl = require('./models/shorten_url')
-const baseUrl = 'http://localhost:3000/'
+const baseUrl = 'https://powerful-journey-36561.herokuapp.com/'
 const Url = require('./models/url')
 const app = express()
 const PORT = process.env.PORT || 3000
