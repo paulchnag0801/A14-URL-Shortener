@@ -1,27 +1,14 @@
-// basic shortened url information
-const shortUrlLength = 5
-const preUrl = 'http://localhost:3000/'
-
-// collection of all possible digits
-const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
-const upperCaseLetters = lowerCaseLetters.toUpperCase()
-const numbers = '1234567890'
-const allDigits = lowerCaseLetters + upperCaseLetters + numbers
-const collection = allDigits.split('')
-
-// generate 5 random digits
-function generateFiveDigits(collection) {
-  let randomDigits = ''
-  let randomIndex
-  for (let i = 0; i < shortUrlLength; i++) {
-    randomIndex = Math.floor(Math.random() * collection.length)
-    randomDigits += collection[randomIndex]
-  }
-  return randomDigits
-}
-
-// combine random digits to short url
-const shortUrl = preUrl + generateFiveDigits(collection)
-
-// export short url
-module.exports = shortUrl
+// set url-list schema
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+const urlSchema = new Schema({
+  originalUrl: {
+    type: String, // 資料型別是字串
+    required: true, // 這是個必填欄位
+  },
+  shortUrl: {
+    type: String, // 資料型別是字串
+    required: true, // 這是個必填欄位
+  },
+})
+module.exports = mongoose.model('Url', urlSchema)
