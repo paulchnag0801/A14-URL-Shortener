@@ -4,7 +4,7 @@ const generateShortUrl = require('./models/shorten_url')
 const baseUrl = 'http://localhost:3000/'
 const Url = require('./models/url')
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 require('./config/mongoose')
 

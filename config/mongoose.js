@@ -1,9 +1,14 @@
 // set db connection
 const mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/url-shortener', {
+
+const MONGODB_URI =
+  process.env.MONGODB_URI || 'mongodb://localhost/url-shortener'
+mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
+
+
 const db = mongoose.connection
 db.on('error', () => {
   console.log('mongodb error!')
