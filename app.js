@@ -2,6 +2,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose') // 載入 mongoose
 const generateShortUrl = require('./models/shorten_url')
+const Url = require('./models/url')
 const app = express()
 const PORT = 3000
 
@@ -27,14 +28,22 @@ app.set('view engine', 'hbs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 
-
 app.get('/', (req, res) => {
   res.render('index')
 })
 
-app.post('/', (req, res) => {
-  const shortUrl = generateShortUrl()
-  res.render('index', { shortUrl })
+app.post('/', async (req, res) => {
+  const shortUrl = await generateShortUrl()
+  const originalUrl = req.body.originalUrl
+  const urlResults = {
+    originalUrl,
+    shortUrl,
+  }
+  Url.create(urlResults)
+    .then(() => {
+      res.render('index', { shortUrl })
+    })
+    .catch((error) => console.log(error))
 })
 
 app.listen(PORT, () => {
