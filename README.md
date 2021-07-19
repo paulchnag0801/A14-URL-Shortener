@@ -1,5 +1,5 @@
 # URL Shortener
-Fast & Simple URL Shortener
+Fast & Simple URL Shortener Quick test: https://powerful-journey-36561.herokuapp.com/
 
 ## Features
 1. Paste your URL and click "Shorten!" to gain shortened URL
@@ -14,7 +14,7 @@ Fast & Simple URL Shortener
 ## Installation and Execution
 1. 打開terminal，clone此專案至本機
 ```
-git clone https://github.com/enchichen1107/url_shortener.git
+git clone https://github.com/paulchang0801/url_shortener.git
 ```
 2. 進入存放此專案的資料夾，terminal輸入
 ```
