@@ -2,7 +2,7 @@
 async function generateShortUrl() {
   // basic shortened url information
   const shortUrlLength = 5
-  const baseUrl = 'https://obscure-refuge-30848.herokuapp.com/'
+  const baseUrl = 'http://localhost:3000/'
 
   // collection of all possible digits
   const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'

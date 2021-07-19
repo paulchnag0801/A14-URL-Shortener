@@ -2,6 +2,7 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const mongoose = require('mongoose') // 載入 mongoose
 const generateShortUrl = require('./models/shorten_url')
+const baseUrl = 'http://localhost:3000/'
 const Url = require('./models/url')
 const app = express()
 const PORT = 3000
@@ -44,6 +45,17 @@ app.post('/', async (req, res) => {
       res.render('index', { shortUrl })
     })
     .catch((error) => console.log(error))
+})
+
+// redirect short URL to original URL
+app.get('/:id', (req, res) => {
+  const shortUrl = baseUrl + req.params.id
+  Url.findOne({ shortUrl: shortUrl })
+    .lean()
+    .then((urlResult) => {
+      res.redirect(`${urlResult.originalUrl}`)
+    })
+    .catch((error) => console.error(error))
 })
 
 app.listen(PORT, () => {
